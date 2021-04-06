@@ -19,12 +19,32 @@
  * Setup e creazione bombe
  */
 
-var maxNum = 10;
-var bombNum = 2;
+var maxNum;
+var bombNum = 16;
 var possibility;
 var bombList = [];
 var correctNum = [];
 var user = 0;
+
+// Scelta del livello di difficoltà
+var level = parseInt( prompt('Si prega di selezionare il livello di difficoltà (da 0 a 2)').trim() );
+
+// Validazione
+while (isNaN(level) || level < 0 || level > 2) {
+    level = parseInt( prompt('Si prega di selezionare il livello di difficoltà (da 0 a 2)').trim() );
+}
+
+// Switch per selezionare il livello di difficoltà
+switch (level) {
+    case 0:
+        maxNum = 100;
+        break;
+    case 1:
+        maxNum = 80;
+        break;
+    case 2:
+        maxNum = 50;
+}
 
 // Calcolo del numero delle possibilità
 possibility = maxNum - bombNum;
